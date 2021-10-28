@@ -55,29 +55,36 @@ pulvinar etiam. Magna etiam tempor orci eu.`;
 export const Default = () => {
     return (
         <App>
-            <LeftNavigation navButtons={[
+            <LeftNavigation
+              navButtons={[
                 {
                     label: 'Link 1',
+                    link: '123412341235.com',
                     onClick: () => {
                     },
                 },
                 {
                     label: 'Link 2',
+                    link: '123412351235123.com',
                     onClick: () => {
                     },
                 },
                 {
                     label: 'Link 3',
+                    link: '123412351235.com',
                     onClick: () => {
                     },
                 },
                 {
                     label: 'Link 4',
+                    link: '123412351235235.com',
                     onClick: () => {
                     },
                 },
 
             ]}
+              HrefColor="#818181"
+              bgcolor="Black"
             />
             <Ipsum>
                 <h2>Lorem Ipsum</h2>

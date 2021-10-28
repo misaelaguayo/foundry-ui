@@ -15,6 +15,7 @@ export const TH = withGlobalStyle(styled.th``);
 export const TD = withGlobalStyle(styled.td``);
 export const TR = withGlobalStyle(styled.tr``);
 export const TextArea = withGlobalStyle(styled.textarea``);
+export const A = withGlobalStyle(styled.a``);
 
 export const AnimatedDiv = withGlobalStyle(styled(animated.div)``);
 export const AnimatedSpan = withGlobalStyle(styled(animated.span)``);
