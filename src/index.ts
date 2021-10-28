@@ -5,6 +5,7 @@ import Divider from './components/Divider';
 import Dropdown from './components/Dropdown';
 import InteractionFeedback from './components/InteractionFeedback';
 import Label from './components/Label';
+import LeftNavigation from './components/LeftNavigation';
 import Modal from './components/Modal';
 import RangeSlider from './components/RangeSlider';
 import Spotlight from './components/Spotlight';
@@ -31,6 +32,7 @@ export {
   Dropdown,
   InteractionFeedback,
   Label,
+  LeftNavigation,
   Modal,
   RangeSlider,
   Skeleton,
