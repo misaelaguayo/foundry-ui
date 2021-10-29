@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledSubcomponentType } from '../commonTypes';
+import { StyledSubcomponentType, SubcomponentPropsType } from '../commonTypes';
 import { Div, A } from '../../htmlElements';
 
 export const Container = styled(Div)`
@@ -45,6 +45,7 @@ export interface LeftNavigationProps {
     color?: string;
     bgcolor?: string;
     HrefColor?: string;
+    containerProps?: SubcomponentPropsType;
 }
 
 const LeftNavigation = ({
@@ -52,10 +53,12 @@ const LeftNavigation = ({
     navButtons,
     bgcolor,
     HrefColor,
+    containerProps
 }: LeftNavigationProps): JSX.Element => {
     return (
         <StyledContainer
           bgcolor={bgcolor}
+          {...containerProps}
         >
             {navButtons &&
                 navButtons.map((navButton) => (
