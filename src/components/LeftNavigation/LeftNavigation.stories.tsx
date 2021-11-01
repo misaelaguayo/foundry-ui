@@ -55,32 +55,32 @@ vulputate eu. Parturient montes nascetur ridiculus mus. Id diam vel quam element
 pulvinar etiam. Magna etiam tempor orci eu.`;
 
 export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
-    // const [hidden, setHidden] = React.useState(args.hidden);
-    // React.useEffect(() => setHidden(args.hidden), [args.hidden]);
+    const [hidden, setHidden] = React.useState(args.hidden);
+    React.useEffect(() => setHidden(args.hidden), [args.hidden]);
     return (
         <App>
             <LeftNavigation
               navButtons={[
                 {
-                    label: 'Link 1',
+                    label: 'Sample Link 1',
                     link: '123412341235.com',
                     onClick: () => {
                     },
                 },
                 {
-                    label: 'Link 2',
+                    label: 'Sample Link 2',
                     link: '123412351235123.com',
                     onClick: () => {
                     },
                 },
                 {
-                    label: 'Link 3',
+                    label: 'Sample Link 3',
                     link: '123412351235.com',
                     onClick: () => {
                     },
                 },
                 {
-                    label: 'Link 4',
+                    label: 'Sample Link 4',
                     link: '123412351235235.com',
                     onClick: () => {
                     },
@@ -89,6 +89,7 @@ export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
             ]}
               HrefColor={args.HrefColor}
               bgcolor={args.bgcolor}
+              hidden={hidden}
             />
             <Ipsum>
                 <h2>Lorem Ipsum</h2>

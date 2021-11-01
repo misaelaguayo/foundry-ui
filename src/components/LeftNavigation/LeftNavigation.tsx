@@ -6,8 +6,10 @@ import { Div, A } from '../../htmlElements';
 export const Container = styled(Div)`
 ${({
     bgcolor,
+    animation,
   }: {
     bgcolor: string;
+    animation: () => void;
   }) => `
   padding-top: 20px;
   height: 100%;
@@ -16,7 +18,24 @@ ${({
   color: white;
   background-color: ${bgcolor};
   top: 0;
+  ${animation}
   `}
+`;
+
+export type HideAnimationPropType = {
+    length?: number;
+    origin?: string;
+    collapsed?: boolean;
+};
+
+export const defaultHideAnimation = ({
+    length = 0.1,
+    origin = 'left',
+    collapsed,
+}: HideAnimationPropType) => `
+    transform: ${collapsed ? 'scaleX(0)' : 'scaleX(1)'};
+    transform-origin: ${origin};
+    transition: transform ${length}s cubic-bezier(0, .7, .9, 1);;
 `;
 
 export const ContainerHref = styled(A)`
@@ -47,18 +66,24 @@ export interface LeftNavigationProps {
     HrefColor?: string;
     containerProps?: SubcomponentPropsType;
     hidden?: boolean;
+    hideAnimation?: (value: HideAnimationPropType) => void;
 }
 
 const LeftNavigation = ({
     StyledContainer = Container,
     navButtons,
-    bgcolor,
-    HrefColor,
+    bgcolor = "Black",
+    HrefColor = "White",
     containerProps,
+    hidden = false,
+    hideAnimation = defaultHideAnimation
 }: LeftNavigationProps): JSX.Element => {
+    const [isHidden] = React.useState(false);
+    const animationProps = {collapsed: hidden || isHidden}
     return (
         <StyledContainer
           bgcolor={bgcolor}
+          animation={hideAnimation(animationProps)}
           {...containerProps}
         >
             {navButtons &&
