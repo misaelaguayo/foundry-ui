@@ -46,6 +46,7 @@ export interface LeftNavigationProps {
     bgcolor?: string;
     HrefColor?: string;
     containerProps?: SubcomponentPropsType;
+    hidden?: boolean;
 }
 
 const LeftNavigation = ({
@@ -53,7 +54,7 @@ const LeftNavigation = ({
     navButtons,
     bgcolor,
     HrefColor,
-    containerProps
+    containerProps,
 }: LeftNavigationProps): JSX.Element => {
     return (
         <StyledContainer

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
-import LeftNavigation from './LeftNavigation';
+import LeftNavigation, { LeftNavigationProps } from './LeftNavigation';
+
+type DefaultProps = LeftNavigationProps;
 
 const App = styled.div`
 `;
@@ -52,7 +54,9 @@ egestas fringilla phasellus faucibus scelerisque eleifend. Venenatis tellus in m
 vulputate eu. Parturient montes nascetur ridiculus mus. Id diam vel quam elementum
 pulvinar etiam. Magna etiam tempor orci eu.`;
 
-export const Default = () => {
+export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
+    // const [hidden, setHidden] = React.useState(args.hidden);
+    // React.useEffect(() => setHidden(args.hidden), [args.hidden]);
     return (
         <App>
             <LeftNavigation
@@ -83,8 +87,8 @@ export const Default = () => {
                 },
 
             ]}
-              HrefColor="#818181"
-              bgcolor="Black"
+              HrefColor={args.HrefColor}
+              bgcolor={args.bgcolor}
             />
             <Ipsum>
                 <h2>Lorem Ipsum</h2>
@@ -95,8 +99,20 @@ export const Default = () => {
     );
 };
 
+Default.args = {
+    hidden: false,
+};
+
 export default {
     title: 'LeftNavigation',
     component: LeftNavigation,
+    argTypes: {
+        position: {
+            options: ['relative', 'sticky', 'fixed', 'static'],
+            control: {
+                type: 'select',
+            },
+        },
+    },
     parameters: {},
 } as Meta;
