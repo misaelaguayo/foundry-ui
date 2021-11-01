@@ -72,14 +72,14 @@ export interface LeftNavigationProps {
 const LeftNavigation = ({
     StyledContainer = Container,
     navButtons,
-    bgcolor = "Black",
-    HrefColor = "White",
+    bgcolor = 'Black',
+    HrefColor = 'White',
     containerProps,
     hidden = false,
-    hideAnimation = defaultHideAnimation
+    hideAnimation = defaultHideAnimation,
 }: LeftNavigationProps): JSX.Element => {
     const [isHidden] = React.useState(false);
-    const animationProps = {collapsed: hidden || isHidden}
+    const animationProps = { collapsed: hidden || isHidden };
     return (
         <StyledContainer
           bgcolor={bgcolor}
