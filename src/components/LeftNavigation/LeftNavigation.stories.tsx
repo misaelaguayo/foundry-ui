@@ -60,33 +60,7 @@ export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
     return (
         <App>
             <LeftNavigation
-              navButtons={[
-                {
-                    label: 'Sample Link 1',
-                    link: '123412341235.com',
-                    onClick: () => {
-                    },
-                },
-                {
-                    label: 'Sample Link 2',
-                    link: '123412351235123.com',
-                    onClick: () => {
-                    },
-                },
-                {
-                    label: 'Sample Link 3',
-                    link: '123412351235.com',
-                    onClick: () => {
-                    },
-                },
-                {
-                    label: 'Sample Link 4',
-                    link: '123412351235235.com',
-                    onClick: () => {
-                    },
-                },
-
-            ]}
+              {...args}
               HrefColor={args.HrefColor}
               bgcolor={args.bgcolor}
               hidden={hidden}
@@ -101,8 +75,22 @@ export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
 };
 
 Default.args = {
+    navButtons: [{
+            label: 'Sample Link 1',
+            link: 'route1',
+            onClick: () => {},
+        },
+        {
+            label: 'Sample Link 2',
+            link: 'route2',
+            onClick: () => {},
+        }],
+    header: 'Card title',
+    footer: 'Sample footer',
+    children:
+      'Sample Body',
     hidden: false,
-};
+  };
 
 export default {
     title: 'LeftNavigation',

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { StyledSubcomponentType, SubcomponentPropsType } from '../commonTypes';
 import { Div, A } from '../../htmlElements';
+import { useTheme } from '../../context';
 
 export const Container = styled(Div)`
 ${({
@@ -20,6 +21,40 @@ ${({
   top: 0;
   ${animation}
   `}
+`;
+
+export const Header = styled(Div)`
+    ${() => {
+        const { colors } = useTheme();
+        return `padding: 1.5rem 1.5rem 0rem
+        border-radius: 0.25rem 0.25rem 0rem 0rem;
+        font-weight: bold;
+        color: ${colors.grayDark};
+    `;
+    }}
+`;
+
+export const Body = styled(Div)`
+    ${() => {
+        const { colors } = useTheme();
+
+        return `
+            padding: 1.5rem 1.5rem;
+            color: ${colors.grayMedium};
+        `;
+    }}
+`;
+
+export const Footer = styled(Div)`
+    ${() => {
+        const { colors } = useTheme();
+
+        return `
+            padding: 1rem 1.5rem;
+            color: ${colors.grayLight};
+            border-radius: 0rem 0rem 0.25rem 0.25rem;
+        `;
+    }}
 `;
 
 export type HideAnimationPropType = {
@@ -44,7 +79,7 @@ ${({
 } : {
     HrefColor: string;
 }) => `
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 0px;
     text-decoration: none;
     font-size: 25px;
     color: ${HrefColor};
@@ -60,6 +95,9 @@ export type NavButton = {
 
 export interface LeftNavigationProps {
     StyledContainer?: StyledSubcomponentType,
+    StyledHeader?: StyledSubcomponentType,
+    StyledBody?: StyledSubcomponentType,
+    StyledFooter?: StyledSubcomponentType,
     navButtons?: NavButton[];
     color?: string;
     bgcolor?: string;
@@ -67,16 +105,26 @@ export interface LeftNavigationProps {
     containerProps?: SubcomponentPropsType;
     hidden?: boolean;
     hideAnimation?: (value: HideAnimationPropType) => void;
+
+    header?: ReactNode;
+    children?: ReactNode;
+    footer?: ReactNode;
 }
 
 const LeftNavigation = ({
     StyledContainer = Container,
+    StyledHeader = Header,
+    StyledBody = Body,
+    StyledFooter = Footer,
     navButtons,
     bgcolor = 'Black',
     HrefColor = 'White',
     containerProps,
     hidden = false,
     hideAnimation = defaultHideAnimation,
+    header,
+    children,
+    footer,
 }: LeftNavigationProps): JSX.Element => {
     const [isHidden] = React.useState(false);
     const animationProps = { collapsed: hidden || isHidden };
@@ -86,10 +134,25 @@ const LeftNavigation = ({
           animation={hideAnimation(animationProps)}
           {...containerProps}
         >
-            {navButtons &&
-                navButtons.map((navButton) => (
+            {header && (
+                <StyledHeader>
+                    {header}
+                </StyledHeader>
+            )}
+            {children && (
+                <StyledBody>
+                    {children}
+                    {navButtons &&
+                    navButtons.map((navButton) => (
                     <ContainerHref HrefColor={HrefColor} href={navButton.link}>{navButton.label}</ContainerHref>
-                ))}
+                    ))}
+                </StyledBody>
+            )}
+            {footer && (
+                <StyledFooter>
+                    {footer}
+                </StyledFooter>
+            )}
         </StyledContainer>
     );
 };
