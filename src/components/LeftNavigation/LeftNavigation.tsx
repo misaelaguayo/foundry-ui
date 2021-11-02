@@ -103,6 +103,9 @@ export interface LeftNavigationProps {
     bgcolor?: string;
     HrefColor?: string;
     containerProps?: SubcomponentPropsType;
+    headerProps?: SubcomponentPropsType;
+    bodyProps?: SubcomponentPropsType;
+    footerProps?: SubcomponentPropsType;
     hidden?: boolean;
     hideAnimation?: (value: HideAnimationPropType) => void;
 
@@ -119,6 +122,9 @@ const LeftNavigation = ({
     bgcolor = 'Black',
     HrefColor = 'White',
     containerProps,
+    headerProps,
+    bodyProps,
+    footerProps,
     hidden = false,
     hideAnimation = defaultHideAnimation,
     header,
@@ -133,18 +139,18 @@ const LeftNavigation = ({
           {...containerProps}
         >
             {header && (
-                <StyledHeader>
+                <StyledHeader {...headerProps}>
                     {header}
                 </StyledHeader>
             )}
-            <StyledBody>
+            <StyledBody {...bodyProps}>
                 {navButtons &&
                 navButtons.map((navButton) => (
                 <ContainerHref HrefColor={HrefColor} href={navButton.link} key={navButton.label}>{navButton.label}</ContainerHref>
                 ))}
             </StyledBody>
             {footer && (
-                <StyledFooter>
+                <StyledFooter {...footerProps}>
                     {footer}
                 </StyledFooter>
             )}

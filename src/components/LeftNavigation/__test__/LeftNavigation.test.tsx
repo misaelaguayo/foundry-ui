@@ -21,7 +21,25 @@ describe('LeftNavigation', () => {
 
     it('shows LeftNavigation with default props', async () => {
         const { container, getByTestId } = render(
-            <LeftNavigation bgcolor="Black" containerProps={{'data-test-id': testId}}/>,
+            <LeftNavigation containerProps={{'data-test-id': testId}}/>,
+        );
+
+        await waitFor(() => getByTestId(testId));
+        expect(container).toMatchSnapshot();
+    });
+
+    it('shows LeftNavigation with header props', async() => {
+        const { container, getByTestId } = render(
+            <LeftNavigation header="testing header" headerProps={{'data-test-id': testId}} />
+        );
+
+        await waitFor(() => getByTestId(testId));
+        expect(container).toMatchSnapshot();
+    });
+
+    it('shows LeftNavigation with footer props', async() => {
+        const { container, getByTestId } = render(
+            <LeftNavigation footer="testing footer" footerProps={{'data-test-id': testId}} />
         );
 
         await waitFor(() => getByTestId(testId));
