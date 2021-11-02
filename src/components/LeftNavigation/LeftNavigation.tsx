@@ -140,7 +140,7 @@ const LeftNavigation = ({
             <StyledBody>
                 {navButtons &&
                 navButtons.map((navButton) => (
-                <ContainerHref HrefColor={HrefColor} href={navButton.link}>{navButton.label}</ContainerHref>
+                <ContainerHref HrefColor={HrefColor} href={navButton.link} key={navButton.label}>{navButton.label}</ContainerHref>
                 ))}
             </StyledBody>
             {footer && (

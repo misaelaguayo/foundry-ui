@@ -1,14 +1,20 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
+import Icon from '@mdi/react';
+import * as Icons from '@mdi/js';
 import LeftNavigation, { LeftNavigationProps } from './LeftNavigation';
+import Button from '../Button';
 
 type DefaultProps = LeftNavigationProps;
+
+const getIconPath = (path: string, color: string) =>
+  path ? <Icon color={color} size="1rem" path={path} /> : undefined;
 
 const App = styled.div`
 `;
 
-const Ipsum = styled.body`
+const Ipsum = styled.div`
     padding-left: 250px;
     top: 0;
 `;
@@ -54,6 +60,11 @@ egestas fringilla phasellus faucibus scelerisque eleifend. Venenatis tellus in m
 vulputate eu. Parturient montes nascetur ridiculus mus. Id diam vel quam elementum
 pulvinar etiam. Magna etiam tempor orci eu.`;
 
+const CloseButton = styled(Button.Container)`
+  padding: 0.5rem;
+  float: right;
+`;
+
 export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
     const [hidden, setHidden] = React.useState(args.hidden);
     React.useEffect(() => setHidden(args.hidden), [args.hidden]);
@@ -64,6 +75,15 @@ export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
               HrefColor={args.HrefColor}
               bgcolor={args.bgcolor}
               hidden={hidden}
+              header={
+                <Button
+                  color="#0000"
+                  StyledContainer={CloseButton}
+                  onClick={() => setHidden(!hidden)}
+                >
+                  {getIconPath(Icons.mdiClose, 'white')}
+                </Button>
+              }
             />
             <Ipsum>
                 <h2>Lorem Ipsum</h2>
@@ -85,7 +105,6 @@ Default.args = {
             link: 'route2',
             onClick: () => {},
         }],
-    header: 'Card title',
     footer: 'Sample footer',
     hidden: false,
   };
