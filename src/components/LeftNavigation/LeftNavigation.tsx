@@ -107,7 +107,6 @@ export interface LeftNavigationProps {
     hideAnimation?: (value: HideAnimationPropType) => void;
 
     header?: ReactNode;
-    children?: ReactNode;
     footer?: ReactNode;
 }
 
@@ -123,7 +122,6 @@ const LeftNavigation = ({
     hidden = false,
     hideAnimation = defaultHideAnimation,
     header,
-    children,
     footer,
 }: LeftNavigationProps): JSX.Element => {
     const [isHidden] = React.useState(false);
@@ -139,15 +137,12 @@ const LeftNavigation = ({
                     {header}
                 </StyledHeader>
             )}
-            {children && (
-                <StyledBody>
-                    {children}
-                    {navButtons &&
-                    navButtons.map((navButton) => (
-                    <ContainerHref HrefColor={HrefColor} href={navButton.link}>{navButton.label}</ContainerHref>
-                    ))}
-                </StyledBody>
-            )}
+            <StyledBody>
+                {navButtons &&
+                navButtons.map((navButton) => (
+                <ContainerHref HrefColor={HrefColor} href={navButton.link}>{navButton.label}</ContainerHref>
+                ))}
+            </StyledBody>
             {footer && (
                 <StyledFooter>
                     {footer}

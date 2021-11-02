@@ -87,8 +87,6 @@ Default.args = {
         }],
     header: 'Card title',
     footer: 'Sample footer',
-    children:
-      'Sample Body',
     hidden: false,
   };
 
