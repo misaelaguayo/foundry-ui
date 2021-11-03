@@ -1,5 +1,5 @@
 import { toHaveNoViolations } from 'jest-axe';
-import { render, waitFor, configure } from '@testing-library/react';
+import { render, waitFor, configure, fireEvent } from '@testing-library/react';
 import LeftNavigation from '../LeftNavigation';
 import { axe } from 'jest-axe';
 import React from 'react'
@@ -43,6 +43,20 @@ describe('LeftNavigation', () => {
         );
 
         await waitFor(() => getByTestId(testId));
+        expect(container).toMatchSnapshot();
+    });
+
+    it('can click on nav links', async () => {
+        const {container, getByTestId} = render(<LeftNavigation navButtons={[
+            {
+                label: 'Label test 1',
+                link: "testlink1",
+                onClick: () => {}
+            }]}
+            navButtonProps={{ 'data-test-id': testId + '-click' }} />
+        );
+        await waitFor(() => getByTestId(testId + '-click'));
+        fireEvent.mouseDown(getByTestId(testId + '-click'));
         expect(container).toMatchSnapshot();
     });
 
