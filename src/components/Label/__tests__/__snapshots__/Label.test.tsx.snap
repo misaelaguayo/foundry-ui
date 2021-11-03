@@ -58,13 +58,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-iwajpm"
+      class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-lmgQwP"
     >
       <div
-        class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-bCwfaz"
+        class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-cxNHIi"
       >
         <label
-          class="sc-fujyAs sc-pNWdM  gA-dQZb sc-fKgJPI KHjYR"
+          class="sc-fujyAs sc-pNWdM  gA-dQZb sc-iwajpm gAfchg"
           color="#9FA2A5"
           for="default"
           id="label"
@@ -73,7 +73,7 @@ Object {
         </label>
         <span
           aria-hidden="true"
-          class="sc-dlnjwi sc-hKFxyN  drTWVl sc-cxNHIi gtRhhV"
+          class="sc-dlnjwi sc-hKFxyN  drTWVl sc-iJCRrE isWSd"
         >
           <svg
             role="presentation"
@@ -201,13 +201,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-iwajpm"
+      class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-lmgQwP"
     >
       <div
-        class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-bCwfaz"
+        class="sc-bdnxRM sc-gtsrHT  kHfwcl sc-cxNHIi"
       >
         <label
-          class="sc-fujyAs sc-pNWdM  gA-dQZb sc-fKgJPI cPoeDw"
+          class="sc-fujyAs sc-pNWdM  gA-dQZb sc-iwajpm TuFXN"
           color="#FF4500"
           for="default"
           id="label"
@@ -216,7 +216,7 @@ Object {
         </label>
         <span
           aria-hidden="true"
-          class="sc-dlnjwi sc-hKFxyN  drTWVl sc-cxNHIi gtRhhV"
+          class="sc-dlnjwi sc-hKFxyN  drTWVl sc-iJCRrE isWSd"
         >
           <svg
             role="presentation"
