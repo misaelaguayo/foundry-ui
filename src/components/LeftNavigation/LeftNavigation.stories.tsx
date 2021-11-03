@@ -5,6 +5,7 @@ import Icon from '@mdi/react';
 import * as Icons from '@mdi/js';
 import LeftNavigation, { LeftNavigationProps } from './LeftNavigation';
 import Button from '../Button';
+import Divider from '../Divider';
 
 type DefaultProps = LeftNavigationProps;
 
@@ -83,6 +84,7 @@ export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
                   StyledContainer={CloseButton}
                   onClick={() => setHidden(!hidden)}
                 >
+                  Foundry UI
                   {getIconPath(Icons.mdiClose, 'white')}
                 </Button>
               }
@@ -123,7 +125,14 @@ Default.args = {
             link: 'route2',
             onClick: () => {},
         }],
-    footer: 'Sample footer',
+    footer: (
+      <div>
+        Contact Us
+        <Divider />
+        {getIconPath(Icons.mdiFacebook, 'white')}
+        {getIconPath(Icons.mdiInstagram, 'white')}
+        {getIconPath(Icons.mdiTwitter, 'white')}
+      </div>),
     hidden: false,
     width: '200px',
     bgcolor: '#BF3A00',
@@ -132,13 +141,5 @@ Default.args = {
 export default {
     title: 'LeftNavigation',
     component: LeftNavigation,
-    argTypes: {
-        position: {
-            options: ['relative', 'sticky', 'fixed', 'static'],
-            control: {
-                type: 'select',
-            },
-        },
-    },
     parameters: {},
 } as Meta;

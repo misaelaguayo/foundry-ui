@@ -63,8 +63,8 @@ exports[`LeftNavigation shows LeftNavigation with footer props 1`] = `
 }
 
 .c2 {
-  padding: 10rem 1.5rem;
-  color: #D5D5D5;
+  padding: 8rem 1.5rem;
+  color: #fff;
   border-radius: 0rem 0rem 0.25rem 0.25rem;
 }
 

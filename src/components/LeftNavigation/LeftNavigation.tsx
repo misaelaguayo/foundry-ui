@@ -52,8 +52,8 @@ export const Footer = styled(Div)`
         const { colors } = useTheme();
 
         return `
-            padding: 10rem 1.5rem;
-            color: ${colors.grayXlight};
+            padding: 8rem 1.5rem;
+            color: ${colors.background};
             border-radius: 0rem 0rem 0.25rem 0.25rem;
         `;
     }}
