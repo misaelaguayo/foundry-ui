@@ -61,8 +61,10 @@ vulputate eu. Parturient montes nascetur ridiculus mus. Id diam vel quam element
 pulvinar etiam. Magna etiam tempor orci eu.`;
 
 const CloseButton = styled(Button.Container)`
+  top: 0;
+  right: 0;
   padding: 0.5rem;
-  float: right;
+  position:fixed;
 `;
 
 export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
@@ -107,6 +109,8 @@ Default.args = {
         }],
     footer: 'Sample footer',
     hidden: false,
+    width: '200px',
+    bgcolor: '#BF3A00',
   };
 
 export default {

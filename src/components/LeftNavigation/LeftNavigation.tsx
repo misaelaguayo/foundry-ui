@@ -7,14 +7,16 @@ import { useTheme } from '../../context';
 export const Container = styled(Div)`
 ${({
     bgcolor,
+    width,
     animation,
   }: {
     bgcolor: string;
+    width: string;
     animation: () => void;
   }) => `
   padding-top: 20px;
   height: 100%;
-  width: 250px;
+  width: ${width};
   position: fixed;
   color: white;
   background-color: ${bgcolor};
@@ -81,7 +83,7 @@ ${({
 }) => `
     padding: 8px 8px 8px 0px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 12px;
     color: ${HrefColor};
     display: block;
     `}
@@ -101,6 +103,7 @@ export interface LeftNavigationProps {
     navButtons?: NavButton[];
     color?: string;
     bgcolor?: string;
+    width?: string;
     HrefColor?: string;
     containerProps?: SubcomponentPropsType;
     headerProps?: SubcomponentPropsType;
@@ -120,6 +123,7 @@ const LeftNavigation = ({
     StyledFooter = Footer,
     navButtons,
     bgcolor = 'Black',
+    width = '100px',
     HrefColor = 'White',
     containerProps,
     headerProps,
@@ -135,6 +139,7 @@ const LeftNavigation = ({
     return (
         <StyledContainer
           bgcolor={bgcolor}
+          width={width}
           animation={hideAnimation(animationProps)}
           {...containerProps}
         >
