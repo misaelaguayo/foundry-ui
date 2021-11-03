@@ -97,13 +97,29 @@ export const Default: Story<DefaultProps> = ({ ...args }: DefaultProps) => {
 };
 
 Default.args = {
-    navButtons: [{
+    navButtons: [
+      {
             label: 'Sample Link 1',
             link: 'route1',
             onClick: () => {},
         },
-        {
+      {
             label: 'Sample Link 2',
+            link: 'route1',
+            onClick: () => {},
+        },
+      {
+            label: 'Sample Link 3',
+            link: 'route1',
+            onClick: () => {},
+        },
+      {
+            label: 'Sample Link 4',
+            link: 'route1',
+            onClick: () => {},
+        },
+        {
+            label: 'Sample Link 5',
             link: 'route2',
             onClick: () => {},
         }],

@@ -52,8 +52,8 @@ export const Footer = styled(Div)`
         const { colors } = useTheme();
 
         return `
-            padding: 1rem 1.5rem;
-            color: ${colors.grayLight};
+            padding: 10rem 1.5rem;
+            color: ${colors.grayXlight};
             border-radius: 0rem 0rem 0.25rem 0.25rem;
         `;
     }}
@@ -83,7 +83,7 @@ ${({
 }) => `
     padding: 8px 8px 8px 0px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 16px;
     color: ${HrefColor};
     display: block;
     `}
@@ -101,7 +101,6 @@ export interface LeftNavigationProps {
     StyledBody?: StyledSubcomponentType,
     StyledFooter?: StyledSubcomponentType,
     navButtons?: NavButton[];
-    color?: string;
     bgcolor?: string;
     width?: string;
     HrefColor?: string;
@@ -123,7 +122,6 @@ const LeftNavigation = ({
     StyledFooter = Footer,
     navButtons,
     bgcolor = 'Black',
-    width = '100px',
     HrefColor = 'White',
     containerProps,
     headerProps,
@@ -139,7 +137,6 @@ const LeftNavigation = ({
     return (
         <StyledContainer
           bgcolor={bgcolor}
-          width={width}
           animation={hideAnimation(animationProps)}
           {...containerProps}
         >
